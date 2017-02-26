@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    {% if items %}
+        {% for item in items %}
+            <div class="row" id="loan_request_{ item.id }}">
+                <div class="col-md-2 col-lg-2">{{ item.amount }}</div>
+                <div class="col-md-2 col-lg-2">{{ item.days }} days</div>
+                <div class="col-md-2 col-lg-2">{{ item.borrower.company.name }}</div>
+                <div class="col-md-2 col-lg-2">{{ item.reason }}</div>
+                <div class="col-md-2 col-lg-2">{{ item.created_at }}</div>
+                <div class="col-md-2 col-lg-2">{{ item.status }}</div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You did not create any loan request yet</p>
+        <p><a href="{% url 'loan_request_new' %}">Create a new loan request</a></p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              aria-expanded="false">
+        <span class="sr-only ">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'home_page' %}">Growth Street - Django test - Gabor Schweger</a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+
+        {% if user.is_authenticated %}
+        <li role="presentation" class="header-nav-btn">
+            <a href="{% url 'phone' %}">Phone</a>
+        </li>
+        <li role="presentation" class="header-nav-btn">
+            <a href="{% url 'company_list' %}">Companies</a>
+        </li>
+        <li role="presentation" class="header-nav-btn">
+            <a href="{% url 'company_new' %}">New Company</a>
+        </li>
+        <li role="presentation" class="header-nav-btn">
+            <a href="{% url 'loan_request_list' %}">Loan Requests</a>
+        </li>
+        <li role="presentation" class="header-nav-btn">
+            <a href="{% url 'loan_request_new' %}">New Loan Request</a>
+        </li>
+        <li role="presentation" class="header-nav-btn">
+            <a href="/accounts/logout/">Sign out</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
